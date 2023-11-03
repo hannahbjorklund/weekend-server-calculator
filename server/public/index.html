@@ -9,12 +9,12 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
+    <form onsubmit="makeEquation(event)" data-testid="calculator">
       <input placeholder="First Number">
-      <button id="add">+</button>
-      <button id="subtract">-</button>
-      <button id="multiply">*</button>
-      <button id="divide">/</button>
+      <button onclick="getOperator(event, '+')" id="add">+</button>
+      <button onclick="getOperator(event, '-')" id="subtract">-</button>
+      <button onclick="getOperator(event, '*')" id="multiply">*</button>
+      <button onclick="getOperator(event, '/')" id="divide">/</button>
       <input placeholder="Second Number">
       <button type="submit">=</button>
       <button type="reset">C</button>
