@@ -53,6 +53,13 @@ function getResult(){
     }).then((response) => {
         let equationResult = response.data;
         console.log("Equation result:", equationResult);
-        //renderEquation(equationResult);
+        renderEquation(equationResult);
     })
+}
+
+// Log the completed equation in the DOM
+function renderEquation(equation){
+    // Get the html element where we will display our equation answer
+    let answerBox = document.getElementById("result");
+    answerBox.textContent = equation.result;
 }
