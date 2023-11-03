@@ -9,13 +9,37 @@ app.use(express.static('server/public'));
 // calculation objects:
 let calculations = []
 
-
 // Here's a wonderful place to make some routes:
-
 // GET /calculations
+app.get('/calculations', (req, res) => {
+  console.log("GET /result received a request");
+  // Send the newEquation to the client
+  res.send(calculations[calculations.length-1]);
+})
 
 // POST /calculations
+app.post('/calculations', (req, res) => {
+  console.log("Received a POST request:", req);
+  let newEquation = req.body;
+  newEquation.result = calculate(newEquation.firstNum, newEquation.secondNum, newEquation.operator);
+  console.log(newEquation);
+  // Add the new equation to our array of equations
+  calculations.push(newEquation);
+  res.sendStatus(201);
+})
 
+// Making a function that calculates the equation result
+function calculate(firstNum, secondNum, operator){
+  if(operator === '+'){
+      return firstNum+secondNum;
+  } else if(operator === '-'){
+      return firstNum-secondNum;
+  } else if(operator === '*'){
+      return firstNum*secondNum;
+  } else {
+      return firstNum/secondNum;
+  }
+}
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
