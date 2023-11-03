@@ -10,12 +10,12 @@
     <h1>Server-Side Calculator</h1>
 
     <form onsubmit="makeEquation(event)" data-testid="calculator">
-      <input placeholder="First Number">
+      <input placeholder="First Number" type="number" id="firstNum">
       <button onclick="getOperator(event, '+')" id="add">+</button>
       <button onclick="getOperator(event, '-')" id="subtract">-</button>
       <button onclick="getOperator(event, '*')" id="multiply">*</button>
       <button onclick="getOperator(event, '/')" id="divide">/</button>
-      <input placeholder="Second Number">
+      <input placeholder="Second Number" type="number" id="secondNum">
       <button type="submit">=</button>
       <button type="reset">C</button>
     </form>

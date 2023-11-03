@@ -29,10 +29,10 @@ function makeEquation(event){
     // Create a post route to the server
     axios({
         method: 'POST',
-        url: '/equation',
+        url: '/calculations',
         data: equation
     }).then((response) => {
-        console.log("Sent POST request at /equation", response);
+        console.log("Sent POST request at /calculations", response);
         // We received a response from the server! Storing the new equation data in a variable
         let newEquation = response.data;
         //renderEquation(newEquation);
@@ -42,4 +42,17 @@ function makeEquation(event){
     document.getElementById("firstNum").value = '';
     document.getElementById("secondNum").value = '';
     getResult()
+}
+
+// Receive the equation result object from the server
+function getResult(){
+    console.log("Inside getResult");
+    axios({
+        method: 'GET',
+        url: '/calculations'
+    }).then((response) => {
+        let equationResult = response.data;
+        console.log("Equation result:", equationResult);
+        //renderEquation(equationResult);
+    })
 }
