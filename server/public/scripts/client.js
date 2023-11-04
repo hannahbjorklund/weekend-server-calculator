@@ -48,7 +48,7 @@ function getHistory(){
         url: '/calculations'
     }).then((response) => {
         let equations = response.data;
-        console.log("Equations result:", equations);
+        console.log("Received equations:", equations);
         renderEquations(equations);
     })
 }
