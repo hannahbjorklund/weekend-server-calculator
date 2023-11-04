@@ -12,19 +12,18 @@ let calculations = []
 // Here's a wonderful place to make some routes:
 // GET /calculations
 app.get('/calculations', (req, res) => {
-  console.log("GET /result received a request");
-  // Send the newEquation to the client
-  res.send(calculations[calculations.length-1]);
+  console.log("GET /calculations received a request");
+  res.send(calculations);
 })
 
 // POST /calculations
 app.post('/calculations', (req, res) => {
-  console.log("Received a POST request:", req);
-  let newEquation = req.body;
-  newEquation.result = calculate(newEquation.firstNum, newEquation.secondNum, newEquation.operator);
-  console.log(newEquation);
+  console.log("Received a POST request:");
+  let calculation = req.body;
+  calculation.result = calculate(calculation.firstNum, calculation.secondNum, calculation.operator);
+  console.log(calculation);
   // Add the new equation to our array of equations
-  calculations.push(newEquation);
+  calculations.push(calculation);
   res.sendStatus(201);
 })
 
