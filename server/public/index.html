@@ -5,9 +5,11 @@
     <title>Server-Side Calculator</title>    
     <script defer src="scripts/axios.js"></script>
     <script defer src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Server-Side Calculator</h1>
+    <h1>Calculate Some Things!</h1>
+    <h3>:  ･ﾟ  ✧  :  ･  .  ☽  °  ｡  ･ﾟ  ✧  :  ･  .  :</h3>
 
     <form onsubmit="makeEquation(event)" data-testid="calculator">
       <table>
@@ -50,12 +52,13 @@
       </table>
     </form>
 
-    <section data-testid="recentResult">
+    <section class='results' data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
       <h2 id="recentResult"></h2>
     </section>
 
-    <section data-testid="resultHistory">
+    <section class='history' data-testid="resultHistory">
+      <h4> Calculation History </h3>
       <ul id="resultHistory">
         <!-- Insert list items for each calculations -->
       </ul>

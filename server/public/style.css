@@ -1,0 +1,53 @@
+html{
+    background-color: aliceblue;
+}
+
+form {
+    left      : 50%;
+    top       : 45%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+    background-color: pink;
+  }
+
+input{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+button{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+h1{
+    text-align: center;
+    color: palevioletred;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h3{
+    text-align: center;
+}
+
+h4{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.results{
+    text-align: center;
+    font-size: larger;
+}
+
+.history{
+    left: 5%;
+    top: 5%;
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
