@@ -10,19 +10,49 @@
     <h1>Server-Side Calculator</h1>
 
     <form onsubmit="makeEquation(event)" data-testid="calculator">
-      <input placeholder="First Number" type="number" id="firstNum">
-      <button onclick="getOperator(event, '+')" id="add">+</button>
-      <button onclick="getOperator(event, '-')" id="subtract">-</button>
-      <button onclick="getOperator(event, '*')" id="multiply">*</button>
-      <button onclick="getOperator(event, '/')" id="divide">/</button>
-      <input placeholder="Second Number" type="number" id="secondNum">
-      <button type="submit">=</button>
-      <button type="reset">C</button>
+      <table>
+        <tr>
+          <td colspan="3">
+            <input type="text" id="result">
+          </td>
+          <td>
+            <button type="reset">C</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><input type="button" value="7" onclick="display(event, '7')"></td>
+          <td><input type="button" value="8" onclick="display(event, '8')"></td>
+          <td><input type="button" value="9" onclick="display(event, '9')"></td>
+          <td><input type="button" value="+" onclick="display(event, '+')"></td>
+        </tr>
+
+        <tr>
+          <td><input type="button" value="4" onclick="display(event, '4')"></td>
+          <td><input type="button" value="5" onclick="display(event, '5')"></td>
+          <td><input type="button" value="6" onclick="display(event, '6')"></td>
+          <td><input type="button" value="-" onclick="display(event, '-')"></td>
+        </tr>
+
+        <tr>
+          <td><input type="button" value="1" onclick="display(event, '1')"></td>
+          <td><input type="button" value="2" onclick="display(event, '2')"></td>
+          <td><input type="button" value="3" onclick="display(event, '3')"></td>
+          <td><input type="button" value="*" onclick="display(event, '*')"></td>
+        </tr>
+
+        <tr>
+          <td><input type="button" value="0" onclick="display(event, '0')"></td>
+          <td><input type="button" value="." onclick="display(event, '.')"></td>
+          <td><input type="submit" value="="></td>
+          <td><input type="button" value="/" onclick="display(event, '/')"></td>
+        </tr>
+      </table>
     </form>
 
     <section data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
-      <h2 id="result"></h2>
+      <h2 id="recentResult"></h2>
     </section>
 
     <section data-testid="resultHistory">

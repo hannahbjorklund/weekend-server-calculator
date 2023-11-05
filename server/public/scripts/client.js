@@ -1,7 +1,13 @@
 console.log('client.js is sourced!');
 let operator;
 
-// Operator function to collect what operator the user wants to use
+// STRETCH: This function updates the display of the calculator
+function display(event, input){
+    event.preventDefault;
+    document.getElementById("result").value += input;
+}
+
+// Operator function to collect what operator the user wants to use (NOT USING THIS IN STRETCH)
 function getOperator(event, clickedOperator){
     event.preventDefault();
     operator = clickedOperator;
@@ -13,11 +19,35 @@ function makeEquation(event){
     // Prevent submit from refreshing the page
     event.preventDefault();
     // Store form fields into variables
-    let firstNum = document.getElementById("firstNum").valueAsNumber;
-    let secondNum = document.getElementById("secondNum").valueAsNumber;
-    console.log("User submitted data:", firstNum, secondNum, operator);
+    let expression = document.getElementById("result").value;
+    console.log("User submitted data:", expression);
+    
+    let operator;
+    let fields;
 
-    // Create an equation object that we will send to the server
+    // Parse the expression for the firstNum, secondNum, and operator
+    if(expression.indexOf('+') > -1){
+        console.log("Operator is plus");
+        operator = '+';
+        // We can split the expression string at the operator. Anything before the operator is
+        //  the first number. Anything after is the second number
+        fields = expression.split('+');
+    } else if(expression.indexOf('-') > -1){
+        operator = '-';
+        fields = expression.split('-');
+    } else if(expression.indexOf('*') > -1){
+        operator = '*';
+        fields = expression.split('*');
+    } else if(expression.indexOf('/') > -1){
+        operator = '/';
+        fields = expression.split('/');
+    }
+
+    // Making sure our numbers are actually numbers and not strings!
+    let firstNum = Number(fields[0]);
+    let secondNum = Number(fields[1]);
+
+    // Creating an equation object that we will send to the server
     let equation = {
         firstNum: firstNum,
         operator: operator,
@@ -25,7 +55,7 @@ function makeEquation(event){
     };
     console.log("Created an equation object", equation);
 
-    // Create a post route to the server
+    // Create a post route to send the equation object to the server
     axios({
         method: 'POST',
         url: '/calculations',
@@ -37,8 +67,7 @@ function makeEquation(event){
     })
 
     // Clear the form fields
-    document.getElementById("firstNum").value = '';
-    document.getElementById("secondNum").value = '';
+    document.getElementById("result").value  = '';
 }
 
 function getHistory(){
@@ -84,7 +113,7 @@ function renderEquations(equations){
 
 // Render the most recent result
 function renderResult(result){
-    let answerBox = document.getElementById("result");
+    let answerBox = document.getElementById("recentResult");
     answerBox.textContent = result;
 }
 
