@@ -5,6 +5,9 @@ let operator;
 function display(event, input){
     event.preventDefault;
     document.getElementById("result").value += input;
+    // Make a cute little clicky noise
+    let snd = new Audio("ButtonPlate Click (Minecraft Sound) - Sound effect for editing.mp3");
+    snd.play();
 }
 
 // Operator function to collect what operator the user wants to use (NOT USING THIS IN STRETCH)
@@ -115,6 +118,8 @@ function renderEquations(equations){
 function renderResult(result){
     let answerBox = document.getElementById("recentResult");
     answerBox.textContent = result;
+    let snd = new Audio("Minecraft Level Up Sound Effect.mp3");
+    snd.play();
 }
 
 getHistory();
