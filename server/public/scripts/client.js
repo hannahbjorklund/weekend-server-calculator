@@ -65,6 +65,7 @@ function makeEquation(event){
         data: equation
     }).then((response) => {
         console.log("Sent POST request at /calculations", response);
+        // Call get equations so we can get the data from the server and update our HTML
         getHistory();
         getRecentResult();
     })
@@ -85,6 +86,7 @@ function getHistory(){
     })
 }
 
+// Get the most recent result from the server
 function getRecentResult(){
     console.log("Inside getRecentResult");
     axios({
@@ -122,4 +124,6 @@ function renderResult(result){
     snd.play();
 }
 
+// Calling getHistory right off the bat. This will make sure the first thing we do is get
+// server data
 getHistory();

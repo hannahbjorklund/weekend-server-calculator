@@ -19,11 +19,14 @@ app.get('/calculations', (req, res) => {
 // POST /calculations
 app.post('/calculations', (req, res) => {
   console.log("Received a POST request:");
+  // Receive the data from the client (an equation object)
   let calculation = req.body;
+  // Give the calculation a new result property using the calculate function
   calculation.result = calculate(calculation.firstNum, calculation.secondNum, calculation.operator);
   console.log(calculation);
-  // Add the new equation to our array of equations
+  // Add the new calculation to our array of calculations
   calculations.push(calculation);
+  // Tell the client we did the thing
   res.sendStatus(201);
 })
 
